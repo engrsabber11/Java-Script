@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shoping List</title>
+</head>
+<body>
+	Item::<input type="text" id="item" name="" value="">
+	<br>
+	<input type="button" name="" value="Add Item" onclick="addItem()">
+
+	<h2 id="output"></h2>
+
+	<script type="text/javascript">
+		var shoping_list = [];
+
+		function addItem(){
+			var addItem = document.getElementById('item').value;
+			shoping_list.push(addItem);
+			function OutputList(){
+				var html = "";
+			output = document.getElementById('output');
+			for(var x = 0;x<shoping_list.length;x++){
+				html += (x+1) + ". " + shoping_list[x] + "<br>";
+			}
+			output.innerHTML = html;
+
+		}
+		OutputList();
+		}
+
+	</script>
+</body>
+</html>

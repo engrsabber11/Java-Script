@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Card Deck</title>
+</head>
+<body>
+ <div id="wrapper">
+        <div id="start"></div> How many Players ?
+        <input type="number" id="players" min="1" max="5" value="3">
+        <button id="btnDeal" type="button" onClick="startDeal()">Deal</button>
+        <div id="message"></div>
+    </div>
+
+<script type="text/javascript">
+	var	output = document.getElementById('output');
+	var suits = ["spades", "hearts", "clubs", "diams"];
+	var cardFace = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+	var cards = [];
+	var players = [];
+
+	function startDeal(){
+		players = [];
+		cards = [];
+		var num = Number(document.getElementById('players').value);
+		for(var i=0;i<num;i++){
+			players[i] = [];
+		}
+		buildCards();
+		suffleCards(cards);
+		deal(cards);
+	}
+	function buildCards(){
+		cards = [];
+		for(s in suits){
+			var suitNew = suits[s][0].toUpperCase();
+			var bgColor = (suits[s] == "hearts" || suits[s] == "diams")?
+			"red":"black";
+			for(c in cardFace){
+				var card = {
+					suit:suits[s],
+					num:cardFace[c],
+					bgColor:bgColor,
+					icon:suitNew
+				}
+				cards.push(card);
+			}
+		}
+	}
+	function suffleCards(array){
+		for(var x=array.length-1; x > 0; x--){
+			var rand = Math.floor(Math.random() * (x+1));
+			var temp = array[x];
+			array[x] = array[rand];
+			array[rand] = temp;
+		}
+		return array;
+	}
+	function deal(c) {
+        var num = players.length;
+        var message = document.getElementById("message");
+        var p = 0;
+        for (var i = 0; i < c.length; i++) {
+            players[p].push(c[i]);
+            p++;
+            if (p >= num) {
+                p = 0;
+            }
+        }
+        for (var x = 0; x < num; x++) {
+            message.innerHTML += "<BR>Player : " + (x + 1) + "<br>";
+            for (var i = 0; i < players[x].length; i++) {
+                message.innerHTML += "<span style=\"color:" + players[x][i].bgColor + "\">" + players[x][i].num + "&" + players[x][i].suit + "; </span>";
+            }
+            message.innerHTML += "<BR>";
+        }
+    }
+</script>
+</body>
+</html>

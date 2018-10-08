@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Name</title>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="myFunction()">click me</button>
+
+<script>
+
+	var fruits = ['mango','orange','banana','pineApple'];
+	var demo = document.getElementById('demo');
+
+function myFunction() {
+	var question = prompt('what is your name');
+	var name = Math.floor(Math.random()*fruits.length);
+	demo.innerHTML += question + " " + "favorite fruits is" + " " +  fruits[name] + "</br>";
+    
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Suffle Array Function</title>
+</head>
+<body>
+<h2 id="output"></h2>
+<button onclick="start()">Start Game</button>
+
+<script type="text/javascript">
+	var output = document.getElementById('output');
+	var skill = ['javascript','php','html','css','bootstrap','website'];
+
+	function start(){
+		suffleArray(skill);
+		output.innerHTML += skill + "<br>";
+
+
+	}
+	function suffleArray(arr){
+		for(var x=arr.length-1;x>0;x--){
+			var holder = Math.floor(Math.random()*(x+1));
+			var temp = arr[x];
+			arr[x] = arr[holder];
+			arr[holder] = temp;
+		// output.innerHTML = arr + "<br>";
+		}
+		return arr;
+	}
+</script>
+</body>
+</html>
