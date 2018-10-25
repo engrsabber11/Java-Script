@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        calculator
+    </title>
+      <meta charset="utf-8">
+      <!--google font & ionic iconpacs CND -->
+
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Supermercado+One|Ubuntu" rel="stylesheet">
+-->
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu|Wendy+One" rel="stylesheet">
+    
+    
+
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+
+
+
+<script type="text/javascript" src="main.js"  src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    
+</script>
+
+</head>
+
+<body id='body'>
+
+   <button class='setting' onclick='openSetting'>•••</button>
+   
+  <div class='settingContainer' id="setting"><button  style='float:right; font-size:14px; width:20px; height:20px; border-radius:50%; text-align:center;' onclick='closeSetting()'>X</button><h2>Settings</h2><br />
+  <div><label><span class='title'>Night Mode</span><input type='checkbox' id='check' name='theme'></input><span class='radioContainer'></span></label></div></div>
+  
+     <div id='splash' class='splash'><h1>Calculator</h1> <div class='lodding'><div class='value'></div></div> </div>
+ <div class="maincontainer">  
+ <img src="./images/20180618_102248.jpg" style="height: 800px; width: 100%">            
+    
+    <div class="calculator">
+
+        <input type="text"  class="viewer" id="screen" placeholder="0" disabled style="border:none;   border-radius:5px; font-size: 40px; width:260px; background-color: #ccff90;"></input><br>
+ 
+
+        <button class="option" onclick="onOff()" style="font-size: 16px; width: 60px; height: 26px; background-color: #d32f2f; color: #fff; border-radius: 8px; "  onclick="off()" >Off</button> 
+
+        <button class="option" onclick="clearAll()" style="font-size: 16px; width: 60px; height: 26px;  background-color:#00c853; color: #fff; border-radius: 8px; " >Clear</button>
+
+        <button class="option" onclick="deleteLastNum()" style="font-size: 16px; width: 60px; height: 26px; font-style:bold; background-color:darkorange; color: #fff; border-radius: 8px; margin-right: 20px;" >&#8592;</button> 
+
+
+        <button value="7"  onclick="getNumber(7)">7</button>
+        <button value="8" onclick="getNumber(8)">8</button>
+        <button value="9" onclick="getNumber(9)">9</button>
+        <button value="plus" class="oprator" onclick="getOparator('plus')">+</button><br>
+
+        <button value="4" onclick="getNumber(4)">4</button>
+
+        <button value="5" onclick="getNumber(5)">5</button>
+        <button value="6" onclick="getNumber(6)">6</button>
+        <button value="minus" class="oprator" onclick="getOparator('minus')">&#x2212;</button><br>
+
+        <button value="1" onclick="getNumber(1)">1</button>
+        <button value="2" onclick="getNumber(2)">2</button>
+        <button value="3" onclick="getNumber(3)">3</button>
+        <button value="multiply" class="oprator" onclick="getOparator('multiply')"> &#x00D7;</button>
+        <button value="dot" onclick="getNumber('dot')">.</button>
+        <button value="0" onclick="getNumber(0)">0</button>
+        <button value="plusminus" onclick="getOparator('plusminus')">&#x00B1;</button>
+        <button value="division" class="oprator" onclick="getOparator('division')">&#247;</button>
+
+
+        <button class="equal" style="width: 67%" onclick="calculate()">=</button>
+        <button class="oprator" onclick="setBracket()">&#40; &#41;</button><br>
+
+        
+    
+        <h6 style="color: #9e9e9e; position: absolute; left:22%; letter-spacing:0em;
+        
+        top:94%; font-size:12px; background:transparent">made with <span style='color:pink; background:none'>&#10084;</span> by Sabber Hossain</h6>
+
+</div>
+
+</div>
+
+<script>var screen = document.getElementById("screen");
+
+function splash() {
+    var splashContainer = document.getElementById('splash');
+    splashContainer.style.display = 'none';
+}
+setTimeout(splash,4000);
+
+
+var check =document.getElementById("check");
+if(check.checked){
+    console.log("chek");
+}
+
+</script>
+</body>
+</html>
